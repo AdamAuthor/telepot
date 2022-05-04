@@ -99,7 +99,7 @@ def _dictify27(data):
 _dictify = _dictify3 if sys.version_info >= (3,) else _dictify27
 
 def _extract_message(update):
-    key = _find_first_key(update, ['message',
+    key = _find_first_key(update, ['update_id','message',
                                    'edited_message',
                                    'channel_post',
                                    'edited_channel_post',
