@@ -111,7 +111,18 @@ def _extract_message(update):
                                    'poll'])
     if not key:
         return key, update
-    return key, update[key]
+    if 'message' in update.keys():
+        return 'message', update['message']
+
+    if 'my_chat_member' in update.keys():
+        return 'message', {'message_id': update['update_id'], 
+                            'from': update['my_chat_member']['from'], 
+                            'chat': update['my_chat_member']['chat'], 
+                            'date': update['my_chat_member']['date'], 
+                            'text': f"It's update_id {update['update_id']}"
+                        }
+    raise Exception('The hotfix for update_id bug needs to upgrade')
+    
 
 def _infer_handler_function(bot, h):
     if h is None:
