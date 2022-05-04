@@ -62,9 +62,7 @@ chat_flavors = ['chat']
 inline_flavors = ['inline_query', 'chosen_inline_result']
 
 
-def _find_first_key(d, keys):    
-    for ds in d:
-        print(ds)
+def _find_first_key(d, keys):        
     for k in keys:
         if k in d:
             return k
@@ -1165,7 +1163,7 @@ class Bot(_BotBase):
 
         def relay_to_collector(update):
             print(update)
-            key = _find_first_key(update, ['message',
+            key = _find_first_key(update, ['my_chat_member','message',
                                            'edited_message',
                                            'channel_post',
                                            'edited_channel_post',
