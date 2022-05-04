@@ -1161,8 +1161,7 @@ class Bot(_BotBase):
                     # Localize error so thread can keep going.
                     traceback.print_exc()
 
-        def relay_to_collector(update):
-            print(update)
+        def relay_to_collector(update):           
             key = _find_first_key(update, ['my_chat_member','message',
                                            'edited_message',
                                            'channel_post',
