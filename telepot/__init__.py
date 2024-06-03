@@ -1394,7 +1394,7 @@ class DelegatorBot(SpeakerBot):
                 id = None
             if id is None:
                 continue
-            elif isinstance(id, collections.Hashable):
+            elif isinstance(id, collections.abc.Hashable):
                 if id not in dict or not dict[id].is_alive():
                     d = make_delegate((self, msg, id))
                     d = self._ensure_startable(d)
